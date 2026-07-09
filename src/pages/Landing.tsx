@@ -92,7 +92,7 @@ const Landing: React.FC = () => {
         <div className="landing-nav-inner">
           <div className="landing-brand">
             <ClipboardList size={26} />
-            <span>Task Manager</span>
+            <span>Taskify</span>
           </div>
           <div className="landing-nav-actions">
             <Link to="/login" className="landing-nav-link">Sign In</Link>
@@ -216,9 +216,9 @@ const Landing: React.FC = () => {
       <footer className="landing-footer">
         <div className="landing-brand">
           <ClipboardList size={20} />
-          <span>Task Manager</span>
+          <span>Taskify</span>
         </div>
-        <p>&copy; {new Date().getFullYear()} Task Manager. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Taskify. All rights reserved.</p>
       </footer>
     </div>
   )

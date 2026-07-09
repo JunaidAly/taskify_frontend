@@ -132,6 +132,13 @@
   padding-left: var(--space-6) !important;
   padding-right: var(--space-6) !important;
   box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.landing-cta-primary svg {
+  vertical-align: middle;
 }
 
 .landing-cta-secondary {
@@ -357,7 +364,7 @@
   box-shadow: var(--shadow-xl);
 }
 
-.landing-cta-box svg {
+.landing-cta-box > svg {
   margin-bottom: var(--space-4);
 }
 
