@@ -135,7 +135,7 @@ const KanbanBoard: React.FC<Props> = ({ tasks, loading, onEdit, onDelete, onComp
                     </div>
                   </div>
 
-                  <div style={{ minHeight: '400px' }}>
+                  <div className="kanban-column-body">
                     {grouped[col.key].length === 0 ? (
                       <Empty
                         image={Empty.PRESENTED_IMAGE_SIMPLE}

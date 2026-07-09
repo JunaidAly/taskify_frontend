@@ -355,9 +355,22 @@
   background: #f9fafb;
   border-radius: var(--radius-lg);
   padding: var(--space-4);
-  min-height: 500px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
   border: 2px solid #e5e7eb;
   transition: all var(--transition-fast);
+}
+
+.kanban-column-body {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.kanban-column-body::-webkit-scrollbar {
+  display: none;
 }
 
 .kanban-column[data-rbd-droppable-id] {
