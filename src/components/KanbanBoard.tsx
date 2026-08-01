@@ -4,6 +4,7 @@ import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
 import { Hourglass, RefreshCw, CheckCircle2, Pencil, Check, Trash2, Calendar, Clock } from 'lucide-react'
 import type { DropResult } from '@hello-pangea/dnd'
 import type { Task, TaskStatus } from '../types'
+import { stripHtml } from '../utils/text'
 import dayjs from 'dayjs'
 
 type Props = {
@@ -228,7 +229,7 @@ const KanbanBoard: React.FC<Props> = ({ tasks, loading, onEdit, onDelete, onComp
                                       overflow: 'hidden'
                                     }}
                                   >
-                                    {task.description}
+                                    {stripHtml(task.description)}
                                   </Typography.Text>
                                 </div>
                               )}

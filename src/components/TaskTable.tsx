@@ -3,6 +3,7 @@ import { Pencil, Check, Trash2, Calendar, Clock } from 'lucide-react'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
 import type { Task } from '../types'
+import { stripHtml } from '../utils/text'
 
 const { Text } = Typography
 
@@ -76,7 +77,7 @@ const TaskTable: React.FC<Props> = ({ tasks, onEdit, onDelete, onComplete }) => 
                 lineHeight: '1.4'
               }}
             >
-              {record.description}
+              {stripHtml(record.description)}
             </Text>
           )}
         </div>

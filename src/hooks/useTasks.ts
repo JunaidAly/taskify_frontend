@@ -68,6 +68,22 @@ export const useCompleteTask = () => {
   })
 }
 
+export const useImportTasks = () => {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: async ({ file, status }: { file: File; status?: TaskStatus }) => {
+      const formData = new FormData()
+      formData.append('file', file)
+      if (status) formData.append('status', status)
+      const { data } = await api.post('/tasks/import', formData)
+      return data as { tasks: Task[]; count: number }
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['tasks'] })
+    },
+  })
+}
+
 type ReorderUpdate = { id: string; status: TaskStatus; order: number }
 export const useReorderTasks = () => {
   const qc = useQueryClient()

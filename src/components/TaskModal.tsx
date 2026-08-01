@@ -1,7 +1,18 @@
 import { Modal, Form, Input, DatePicker, Select, Typography, Space, Divider } from 'antd'
 import { CheckSquare, Calendar, Flag, FileText } from 'lucide-react'
 import dayjs, { type Dayjs } from 'dayjs'
+import ReactQuill from 'react-quill-new'
+import 'react-quill-new/dist/quill.snow.css'
 import type { Task, TaskInput, TaskStatus } from '../types'
+
+const quillModules = {
+  toolbar: [
+    ['bold', 'italic', 'underline', 'strike'],
+    [{ list: 'ordered' }, { list: 'bullet' }],
+    ['link'],
+    ['clean'],
+  ],
+}
 
 const { Title, Text } = Typography
 
@@ -137,8 +148,8 @@ const TaskModal: React.FC<Props> = ({ open, onClose, initial, onSubmit }) => {
           />
         </Form.Item>
 
-        <Form.Item 
-          name="description" 
+        <Form.Item
+          name="description"
           label={
             <div className="flex items-center gap-2">
               <FileText size={16} style={{ color: 'var(--text-tertiary)' }} />
@@ -146,13 +157,14 @@ const TaskModal: React.FC<Props> = ({ open, onClose, initial, onSubmit }) => {
               <Text type="secondary" style={{ fontSize: 'var(--font-size-xs)' }}>(Optional)</Text>
             </div>
           }
-        > 
-          <Input.TextArea 
+          getValueFromEvent={(content: string) => content}
+          rules={[{ max: 5000, message: 'Description is too long' }]}
+        >
+          <ReactQuill
+            theme="snow"
             placeholder="Add more details about your task..."
-            rows={4}
+            modules={quillModules}
             style={{ borderRadius: 'var(--radius-md)' }}
-            showCount
-            maxLength={500}
           />
         </Form.Item>
 
